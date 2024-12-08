@@ -1,0 +1,51 @@
+/* Basic CSS to style the blank page */
+
+:root {
+    --pixel-size: 6;
+ }
+
+body {
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.Character {
+    width: calc(16px * var(--pixel-size));
+    height: calc(17px * var(--pixel-size));
+    background: red;
+    /* overflow: hidden; Ensures only one frame is visible */
+    position: relative;
+    margin: 4em auto;
+}
+
+.Character_spritesheet {
+    animation: moveSpritesheet 1s steps(4) infinite; /* Adjust steps based on your sprite sheet */
+    width: calc(148px * var(--pixel-size));
+    position: absolute;
+}
+
+.pixelart {
+    image-rendering: pixelated;
+ }
+ .walk-left {
+    top: calc(-33px * var(--pixel-size));
+ }
+ .rowing{
+    top: calc(0px * var(--pixel-size));
+ }
+ .standing {
+    top: calc(-50px * var(--pixel-size));
+ }
+ .walk-right {
+    top: calc(-66px * var(--pixel-size));
+ }
+
+
+@keyframes moveSpritesheet {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(-388px, 0, 0); /* Total width of animation frames */
+    }
+}
